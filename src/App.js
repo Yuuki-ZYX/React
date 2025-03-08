@@ -1,28 +1,27 @@
 import { useState } from "react";
 
-const MyButton = () => {
-  const [cnt,setCnt] = useState(0);
-
-  const handleClick = () => {
-    setCnt(cnt+1);
-  }
+const MyButton = ({cnt,handleClick}) => {
 
   return(
     <button onClick={handleClick}>
       点了{cnt}次
     </button>
-  )
+  );
 
-}
+};
 
 function App() {
-  
+  const [cnt,setCnt] = useState(0);
+
+  const handleClick = () => {
+    setCnt(cnt+1);
+  }
   return (
     <div className="App">
-     <MyButton />
+      <h3>共同更新的计数器</h3>
+     <MyButton cnt={cnt} handleClick={handleClick}/>
      <br />
-     <MyButton />   
-     {/* 不同组件的cnt是独立的 */}
+     <MyButton cnt={cnt} handleClick={handleClick}/>   
     </div>
   );
 }
