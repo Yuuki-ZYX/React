@@ -1,25 +1,28 @@
-// 项目的根组件
+import { useState } from "react";
 
-const products = [
-  { title : 'Cabbage' , id: 1 , isFruit : false},
-  { title : 'Garlic' , id: 2 , isFruit : false},
-  { title : 'Apple' , id : 3 , isFruit : true},
-];
+const MyButton = () => {
+  const [cnt,setCnt] = useState(0);
+
+  const handleClick = () => {
+    setCnt(cnt+1);
+  }
+
+  return(
+    <button onClick={handleClick}>
+      点了{cnt}次
+    </button>
+  )
+
+}
+
 function App() {
-  const listItems = products.map(product =>
-    <li 
-    key={product.id}
-    style = {{
-      color : product.isFruit ? "lightblue" : "lightgreen"
-    }}
-    >
-      {product.title}
-    </li>
-  );
-
+  
   return (
     <div className="App">
-      <ul> {listItems}</ul>
+     <MyButton />
+     <br />
+     <MyButton />   
+     {/* 不同组件的cnt是独立的 */}
     </div>
   );
 }
