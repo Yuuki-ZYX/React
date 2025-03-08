@@ -1,16 +1,25 @@
 // 项目的根组件
 
-function MyButton() {
-  return (
-    <button>我是一个按钮</button>
-  );
-}
-
+const products = [
+  { title : 'Cabbage' , id: 1 , isFruit : false},
+  { title : 'Garlic' , id: 2 , isFruit : false},
+  { title : 'Apple' , id : 3 , isFruit : true},
+];
 function App() {
+  const listItems = products.map(product =>
+    <li 
+    key={product.id}
+    style = {{
+      color : product.isFruit ? "lightblue" : "lightgreen"
+    }}
+    >
+      {product.title}
+    </li>
+  );
+
   return (
     <div className="App">
-      <h1>欢迎来到我的应用</h1>
-      <MyButton />
+      <ul> {listItems}</ul>
     </div>
   );
 }
