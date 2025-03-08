@@ -1,23 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
-
+// 项目的根组件
+// useState是实现一个计数器
+import { useState } from "react";
 function App() {
+  // 1.调用useState添加一个状态变量
+  // count 状态变量
+  // setCount 修改状态变量的方法
+  const [count, setCount] = useState(0);
+
+  // 2. 点击事件回调
+  const handleClick = () => {
+    setCount(count + 1);
+  };
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <button onClick={handleClick}>{count}</button>
     </div>
   );
 }
