@@ -1,18 +1,16 @@
 // 项目的根组件
-// useState是实现一个计数器
-import { useState } from "react";
-function App() {
-  const [form,setForm] = useState({name:'jack',age:13});
 
-  const changeForm = () => {
-    setForm({
-      ...form,
-      name:'peter'
-    })
-  }
+function MyButton() {
+  return (
+    <button>我是一个按钮</button>
+  );
+}
+
+function App() {
   return (
     <div className="App">
-      <button onClick={changeForm}>{form.name}</button>
+      <h1>欢迎来到我的应用</h1>
+      <MyButton />
     </div>
   );
 }
